@@ -2,7 +2,7 @@ import "./pages/index.css";
 import { initialCards } from "./components/cards.js";
 import { createCard, delCard, likeCard } from "./components/card.js";
 import {
-  showModal,
+  openModal,
   closeModal,
   closeOnOverlayClick,
 } from "./components/modal.js";
@@ -30,11 +30,11 @@ const jobInput = content.querySelector(".profile__description");
 buttonEdit.addEventListener("click", () => {
   formEdit.elements.name.value = nameInput.textContent;
   formEdit.elements.description.value = jobInput.textContent;
-  showModal(popupEdit);
+  openModal(popupEdit);
 });
 
 buttonAdd.addEventListener("click", () => {
-  showModal(popupAdd);
+  openModal(popupAdd);
 });
 
 buttonClosePopupEdit.addEventListener("click", () => {
@@ -82,7 +82,7 @@ const openImagePopup = (evt) => {
   img.src = evt.target.src;
   img.alt = evt.target.alt;
   caption.textContent = cardElement.querySelector(".card__title").textContent;
-  showModal(popupImage);
+  openModal(popupImage);
 };
 
 //Вывести карточки на страницу

@@ -5,7 +5,7 @@ function escKeyHandler(evt) {
   }
 }
 
-export function showModal(element) {
+export function openModal(element) {
   element.classList.add("popup_is-opened");
   document.addEventListener("keydown", escKeyHandler);
 }
