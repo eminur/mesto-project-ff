@@ -13,53 +13,53 @@ const cardTemplate = document.querySelector("#card-template").content;
 //DOM узлы
 const content = document.querySelector(".content");
 const placesList = content.querySelector(".places__list");
-const buttonEdit = content.querySelector(".profile__edit-button");
-const buttonAdd = content.querySelector(".profile__add-button");
-const popupAdd = document.querySelector(".popup_type_new-card");
-const buttonClosePopupAdd = popupAdd.querySelector(".popup__close");
-const popupEdit = document.querySelector(".popup_type_edit");
-const buttonClosePopupEdit = popupEdit.querySelector(".popup__close");
+const buttonOpenEditProfileForm = content.querySelector(".profile__edit-button");
+const buttonOpenAddCardForm = content.querySelector(".profile__add-button");
+const popupAddCard = document.querySelector(".popup_type_new-card");
+const buttonClosePopupAddCard = popupAddCard.querySelector(".popup__close");
+const popupEditProfile = document.querySelector(".popup_type_edit");
+const buttonClosePopupEditProfile = popupEditProfile.querySelector(".popup__close");
 const popupImage = document.querySelector(".popup_type_image");
 const buttonClosePopupImage = popupImage.querySelector(".popup__close");
-const formEdit = document.forms["edit-profile"];
+const formEditProfile = document.forms["edit-profile"];
 const formNewPlace = document.forms["new-place"];
 const nameInput = content.querySelector(".profile__title");
 const jobInput = content.querySelector(".profile__description");
 
 //Обработчики событии
-buttonEdit.addEventListener("click", () => {
-  formEdit.elements.name.value = nameInput.textContent;
-  formEdit.elements.description.value = jobInput.textContent;
-  openModal(popupEdit);
+buttonOpenEditProfileForm.addEventListener("click", () => {
+  formEditProfile.elements.name.value = nameInput.textContent;
+  formEditProfile.elements.description.value = jobInput.textContent;
+  openModal(popupEditProfile);
 });
 
-buttonAdd.addEventListener("click", () => {
-  openModal(popupAdd);
+buttonOpenAddCardForm.addEventListener("click", () => {
+  openModal(popupAddCard);
 });
 
-buttonClosePopupEdit.addEventListener("click", () => {
-  closeModal(popupEdit);
+buttonClosePopupEditProfile.addEventListener("click", () => {
+  closeModal(popupEditProfile);
 });
 
-buttonClosePopupAdd.addEventListener("click", () => {
-  closeModal(popupAdd);
+buttonClosePopupAddCard.addEventListener("click", () => {
+  closeModal(popupAddCard);
 });
 
 buttonClosePopupImage.addEventListener("click", () => {
   closeModal(popupImage);
 });
 
-popupEdit.addEventListener("click", closeOnOverlayClick);
+popupEditProfile.addEventListener("click", closeOnOverlayClick);
 
-popupAdd.addEventListener("click", closeOnOverlayClick);
+popupAddCard.addEventListener("click", closeOnOverlayClick);
 
 popupImage.addEventListener("click", closeOnOverlayClick);
 
-formEdit.addEventListener("submit", (evt) => {
+formEditProfile.addEventListener("submit", (evt) => {
   evt.preventDefault();
-  nameInput.textContent = formEdit.elements.name.value;
-  jobInput.textContent = formEdit.elements.description.value;
-  closeModal(popupEdit);
+  nameInput.textContent = formEditProfile.elements.name.value;
+  jobInput.textContent = formEditProfile.elements.description.value;
+  closeModal(popupEditProfile);
 });
 
 formNewPlace.addEventListener("submit", (evt) => {
@@ -70,7 +70,7 @@ formNewPlace.addEventListener("submit", (evt) => {
   placesList.prepend(
     createCard(cardTemplate, card, delCard, likeCard, openImagePopup)
   );
-  closeModal(popupAdd);
+  closeModal(popupAddCard);
   formNewPlace.reset();
 });
 
