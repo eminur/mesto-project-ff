@@ -19,6 +19,7 @@ function hideInputError(
 ) {
   const errorElement = formElement.querySelector(`.${inputElement.id}-error`);
   inputElement.classList.remove(inputErrorClass);
+  inputElement.setCustomValidity("");
   errorElement.classList.remove(errorClass);
   errorElement.textContent = "";
 }

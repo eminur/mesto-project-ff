@@ -1,5 +1,4 @@
 import "./pages/index.css";
-import { initialCards } from "./components/cards.js";
 import { createCard, delCard, likeCard } from "./components/card.js";
 import {
   openModal,
