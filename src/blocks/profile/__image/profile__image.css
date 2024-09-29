@@ -1,22 +1,50 @@
 .profile__image {
   width: 120px;
   height: 120px;
+  margin: 0 29px 0 0;
   -webkit-border-radius: 50%;
   -moz-border-radius: 50%;
   border-radius: 50%;
-  background-size: cover;
   background-position: center;
-  margin: 0 29px 0 0;
+  background-size: cover;
+  transition: 0.3s;
+}
+
+.profile__avatar {
+  position: relative;
+}
+
+.profile__avatar-edit-icon {
+  position: absolute;
+  top: calc(50%-13px);
+  left: calc(50% - 27.5px);
+  visibility: hidden;
+}
+
+.profile__avatar:hover .profile__image {
+  opacity: 0.3;
+}
+
+.profile__avatar:hover .profile__avatar-edit-icon {
+  visibility: visible;
 }
 
 @media screen and (max-width: 740px) {
   .profile__image {
     margin: 0 10px 0 0;
   }
+
+  .profile__avatar-edit-icon {
+    left: calc(50% - 18px);
+  }
 }
 
 @media screen and (max-width: 480px) {
   .profile__image {
     margin-right: 0;
+  }
+
+  .profile__avatar-edit-icon {
+    left: calc(50% - 13px);
   }
 }
