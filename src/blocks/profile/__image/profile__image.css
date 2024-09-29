@@ -19,6 +19,7 @@
   top: calc(50%-13px);
   left: calc(50% - 27.5px);
   visibility: hidden;
+  cursor: pointer;
 }
 
 .profile__avatar:hover .profile__image {
