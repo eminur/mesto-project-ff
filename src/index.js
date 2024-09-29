@@ -148,7 +148,6 @@ formEditAvatar.addEventListener("submit", (evt) => {
   formEditAvatar.elements["button-save"].textContent = textSaving;
   updateAvatar(formEditAvatar.elements["avatar-link"].value)
     .then((res) => {
-      console.log(res);
       profileImage.setAttribute(
         "style",
         `background-image: url(${formEditAvatar.elements["avatar-link"].value})`
