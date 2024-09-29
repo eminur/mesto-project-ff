@@ -65,9 +65,7 @@ buttonOpenEditProfileForm.addEventListener("click", () => {
 });
 
 buttonOpenAddCardForm.addEventListener("click", () => {
-  formNewPlace.elements["place-name"].value = "";
-  formNewPlace.elements.link.value = "";
-  clearValidation(formNewPlace, validationConfig);
+  formNewPlace.reset();
   openModal(popupAddCard);
 });
 
@@ -111,13 +109,13 @@ formEditProfile.addEventListener("submit", (evt) => {
     .then((profile) => {
       nameInput.textContent = profile.name;
       jobInput.textContent = profile.about;
+      closeModal(popupEditProfile);
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
       formEditProfile.elements["button-save"].textContent = textSave;
-      closeModal(popupEditProfile);
     });
 });
 
@@ -132,14 +130,15 @@ formNewPlace.addEventListener("submit", (evt) => {
       placesList.prepend(
         createCard(cardTemplate, card, delCard, likeCard, openImagePopup, myId)
       );
+      formNewPlace.reset();
+      clearValidation(formNewPlace, validationConfig);
+      closeModal(popupAddCard);
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
       formNewPlace.elements["button-save"].textContent = textSave;
-      closeModal(popupAddCard);
-      formNewPlace.reset();
     });
 });
 
@@ -152,13 +151,13 @@ formEditAvatar.addEventListener("submit", (evt) => {
         "style",
         `background-image: url(${formEditAvatar.elements["avatar-link"].value})`
       );
+      closeModal(popupAvatar);
     })
     .catch((err) => {
       console.log(err);
     })
     .finally(() => {
-      formEditAvatar.elements["button-save"].textContent = textSave;
-      closeModal(popupAvatar);
+      formEditAvatar.elements["button-save"].textContent = textSave;      
     });
 });
 
