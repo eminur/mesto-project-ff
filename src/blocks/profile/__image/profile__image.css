@@ -23,7 +23,7 @@
 }
 
 .profile__avatar:hover .profile__image {
-  opacity: 0.3;
+  opacity: 0.6;
 }
 
 .profile__avatar:hover .profile__avatar-edit-icon {
